@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>J&J Design Co. | Graphic Arts + Media Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background-color: #f7f7f7;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo img {
+      width: 60px;
+    }
+
+    .nav-logo span {
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #111;
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #111;
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #111;
+      border: 1px solid #111;
+    }
+
+    .hero {
+      padding: 3.5rem 0 3rem;
+      background: #fafafa;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-logo-wrap {
+      width: 170px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #777;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      margin-bottom: 1.2rem;
+      max-width: 520px;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      max-width: 550px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eee;
+    }
+
+    .pricing-card h3 {
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+
+    .tier-desc {
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: 0.2rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-photo {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .mission {
+      background: #111;
+      color: #f9f9f9;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    footer {
+      padding: 1.4rem 0 1.8rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #777;
+    }
+  </style>
+
+  <script>
+    function scrollToService(id, button) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav-bar">
+      <div class="nav-logo">
+        <img src="5.png" alt="logo">
+        <span>J&J DESIGN CO.</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-logo-wrap"><img src="5.png" alt="J&J Design Co. logo"></div>
+        <div class="hero-tag">Graphic Arts + Media Management</div>
+        <h1>Digital & Web Design for Brands Ready to Grow</h1>
+        <p>
+          J&J Design Co. partners with small business owners and entrepreneurs to build
+          modern websites, memorable logos, and reliable web management solutions.
+        </p>
+        <a href="#services" class="btn btn-primary">View Service Packages</a>
+      </div>
+
+      <div class="hero-card">
+        <h3>Managed Digital Design Studio</h3>
+        <p>Design, branding, and hosting support crafted for busy entrepreneurs who need a professional online presence without managing all the tech behind it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Services & Pricing</h2>
+    <p class="section-subtitle">
+      Clear 3-tier packages across website design, logo design, and website hosting management—so you can choose support that fits where your business is right now.
+    </p>
+
+    <!-- WEBSITE DESIGN -->
+    <h3 class="section-title" style="font-size:1rem;">Website Design</h3>
+    <p class="section-subtitle">
+      Custom-designed websites built on user-friendly platforms like Wix and AWS-backed hosting. Each tier includes mobile-responsive layouts, on-brand visuals, and a focus on clarity and conversion.
+    </p>
+    <div class="services-grid">
+      <div class="pricing-card">
+        <h3>Starter – $450</h3>
+        <p class="tier-desc">
+          Ideal for new businesses or personal brands that need a clean, professional online home quickly.
+          Includes a simple layout, core sections (about, services, contact), and basic launch support.
+        </p>
+      </div>
+      <div class="pricing-card">
+        <h3>Growth – $750</h3>
+        <p class="tier-desc">
+          Designed for growing brands ready to showcase more services, portfolio items, or booking links.
+          Includes multi-page structure, guided content flow, and light optimization for user experience.
+        </p>
+      </div>
+      <div class="pricing-card">
+        <h3>Premium – $1250</h3>
+        <p class="tier-desc">
+          Best for established businesses needing a polished, strategic website experience.
+          Includes advanced layouts, more pages or sections, blog/resource setup, and launch walkthrough.
+        </p>
+      </div>
+    </div>
+
+    <!-- LOGO DESIGN -->
+    <h3 class="section-title" style="font-size:1rem; margin-top:3rem;">Logo Design</h3>
+    <p class="section-subtitle">
+      Brand marks that match your vision—paired with the right colors and typography so your visuals feel consistent everywhere you show up.
+    </p>
+    <div class="services-grid">
+      <div class="pricing-card">
+        <h3>Essential – $175</h3>
+        <p class="tier-desc">
+          A refresh for brands that already have an idea or existing logo. Includes one polished concept,
+          font and color refinement, and delivery in high-resolution files for print and digital use.
+        </p>
+      </div>
+      <div class="pricing-card">
+        <h3>Standard – $325</h3>
+        <p class="tier-desc">
+          Ideal for new brands that want options. Includes multiple logo concepts, main and secondary logo
+          variations, basic brand usage guidance, and color/black-and-white versions.
+        </p>
+      </div>
+      <div class="pricing-card">
+        <h3>Premium – $550</h3>
+        <p class="tier-desc">
+          A full visual identity experience. Includes logo suite (primary, secondary, submark), curated
+          color palette, typography pairings, social media-ready graphics, and a mini brand guide PDF.
+        </p>
+      </div>
+    </div>
+
+    <!-- HOSTING MANAGEMENT -->
+    <h3 class="section-title" style="font-size:1rem; margin-top:3rem;">Hosting Management</h3>
+    <p class="section-subtitle">
+      Ongoing care for your live website. We monitor, update, and support your site so it stays secure,
+      functional, and aligned with your current offers and content.
+    </p>
+    <div class="services-grid">
+      <div class="pricing-card">
+        <h3>Care – $55/mo</h3>
+        <p class="tier-desc">
+          Great for lean sites that need eyes on uptime and basic upkeep. Includes domain and hosting
+          monitoring, simple platform updates, and monthly health checks.
+        </p>
+      </div>
+      <div class="pricing-card">
+        <h3>Managed – $95/mo</h3>
+        <p class="tier-desc">
+          For active businesses that make occasional updates. Includes everything in Care plus a set
+          number of content edits each month and priority email support for minor changes or fixes.
+        </p>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro – $155/mo</h3>
+        <p class="tier-desc">
+          A “done-for-you” management option. Includes frequent edits, performance checks,
+          tech integration support (forms, tools, booking), and strategy-focused check-ins.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <h2>Meet Amati Simmons</h2>
+        <p>
+          Amati Simmons is the lead designer and founder of J&J Design Co., based in Toledo, Ohio.
+          With 10+ years of experience in graphic design and digital media, Amati specializes in
+          creating visuals and web experiences that feel polished, modern, and strategic.
+        </p>
+        <p>
+          As a Canva, Wix, and AWS-certified partner, Amati blends user-friendly platforms with
+          reliable tech infrastructure—making it easier for small business owners and entrepreneurs
+          to maintain a professional online presence without feeling overwhelmed.
+        </p>
+      </div>
+      <div class="about-photo">
+        <img src="6.png" alt="Photo of lead designer Amati Simmons">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="mission">
+  <div class="container">
+    <h2>Mission Statement</h2>
+    <p>
+      J&J Design Co. exists to creatively execute and optimize digital and web solutions
+      that support entrepreneurs and small business owners in showing up with confidence online.
+    </p>
+    <p>
+      Every project is approached with a balance of storytelling, strategy, and structure—so your
+      visuals feel true to your brand and your website actually works for your business.
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">
+      Ready to work together? Add your preferred contact method here (email, form, booking link) so clients can easily reach out.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <span>J&J DESIGN CO. — Established 2019 · Toledo, Ohio</span>
+</footer>
+
+</body>
+</html>
